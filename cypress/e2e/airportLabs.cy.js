@@ -22,7 +22,7 @@ describe('first test suite', () =>{
        })     
 
     })
-    it('II. Verify that the statistic',()=>{
+    it('II. Verify the statistic',()=>{
         cy.visit('https://airportlabs.com/')
         let expText='5.1K'
         cy.xpath('/html/body/section[1]/div[3]/div/div[2]/div[2]/div[1]/div[1]').invoke('prop','textContent').then((actText)=>{

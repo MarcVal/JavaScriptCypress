@@ -2,6 +2,8 @@
 
 describe('first test suite', () =>{
     it('Add most expensive TV to cart', ()=>{
+       //1. Visit e-shop 
+
         cy.visit('https://www.emag.ro/televizoare/c?ref=hp_menu_quick-nav_190_1&type=category')
           
         cy.xpath('/html/body/div[11]/div/div[2]/button[1]').click()
@@ -9,11 +11,11 @@ describe('first test suite', () =>{
         cy.get('.js-dismiss-login-notice-btn > .em').click()
         cy.get('h1.title-phrasing,title-phrasing-xl').should('contain','Televizoare')
 
-        //Select brand
+        //2. Select brand
         cy.xpath('//*[@id="main-container"]/section[1]/div/div[3]/div[2]/div[1]/div[3]/div/div/div/div/div/div[1]/button').should('contain','Samsung').click()
         
 
-        //sort by descending price
+        //3. Sort products by descending price
         cy.get(':nth-child(2) > .sort-control-btn-dropdown > .btn > .sort-control-btn-option').click()
         cy.get('a.js-sort-option')
         .each(($el,index,list)=>{
@@ -26,7 +28,7 @@ describe('first test suite', () =>{
             }
         })
 
-        //verify the largest price
+        //4. Verify the largest price
        
         /*cy.get('p.product-new-price')
         .eq(0).invoke('text')
